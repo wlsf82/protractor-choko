@@ -74,18 +74,21 @@ describe( 'Choko.org', function() {
       var sidebar = element(by.css('.col-md-3'));
 
       var navItems = sidebar.all(by.repeater('item in data.items'));
+      navItems.count().then(function(counter) {
 
-      for (i = 1; i < 7; i++) {
-        navItems.get(i).click();
+        for (i = 1; i < counter; i++) {
+          navItems.get(i).click();
 
-        navItems.get(i).getText().then(function(text) {
-          transformedLink = text.replace(/ /g, '-').toLowerCase();
+          navItems.get(i).getText().then(function(text) {
+            transformedText = text.replace(/ /g, '-').toLowerCase();
 
-          var currentUrl = browser.getCurrentUrl();
+            var currentUrl = browser.getCurrentUrl();
 
-          expect(currentUrl).toContain(browser.baseUrl + 'documentation/' + transformedLink);
-        });
-      }
+            expect(currentUrl).toContain(browser.baseUrl + 'documentation/' + transformedText);
+          });
+        }
+
+      });
 
       navItems.get(0).click();
 
