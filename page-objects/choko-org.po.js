@@ -6,6 +6,8 @@ var ChokoOrg = function() {
   this.aboutLink = element(by.css('.navbar-nav .ng-scope:nth-child(4) .ng-binding'));
   this.blogLink = element(by.css('.navbar-nav .ng-scope:nth-child(5) .ng-binding'));
 
+  this.learnMoreLink = element(by.linkText('Learn more'));
+
   this.addBlogPostButton = element(by.css('.ng-binding.btn-primary'));
 
   this.signInLink = element(by.css('.btn-link'));

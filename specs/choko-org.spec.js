@@ -1,4 +1,5 @@
 var ChokoOrg = require('../page-objects/choko-org.po');
+var LearnMore = require('../page-objects/learn-more.po');
 
 describe( 'Choko.org', function() {
 
@@ -9,6 +10,9 @@ describe( 'Choko.org', function() {
   });
 
   it( 'navigate to Getting started', function() {
+
+    // @TODO: Investigate why is it been necessary since it was not at the first time.
+    browser.sleep(3000);
 
     chokoOrg.gettingStartedLink.click();
 
@@ -58,41 +62,44 @@ describe( 'Choko.org', function() {
 
   });
 
-  fdescribe( 'Learn more', function() {
+  describe( 'Learn more', function() {
+
+    var chokoOrg = new ChokoOrg();
+    var learnMore = new LearnMore();
 
     it( 'navigate through the sidebar items', function() {
 
-      var learnMoreLink = element(by.linkText('Learn more'));
-      expect(learnMoreLink.getTagName()).toBe('a');
+      expect(chokoOrg.learnMoreLink.getTagName()).toBe('a');
 
-      learnMoreLink.click();
+      chokoOrg.learnMoreLink.click();
 
       var currentUrl = browser.getCurrentUrl();
 
-      expect(currentUrl).toContain(browser.baseUrl + 'getting-started');
+      expect(currentUrl).toEqual(browser.baseUrl + 'getting-started');
 
-      var sidebar = element(by.css('.col-md-3'));
-
-      var navItems = sidebar.all(by.repeater('item in data.items'));
-      navItems.count().then(function(counter) {
+      learnMore.navItems.count().then(function(counter) {
 
         for (i = 1; i < counter; i++) {
-          navItems.get(i).click();
 
-          navItems.get(i).getText().then(function(text) {
+          learnMore.navItems.get(i).click();
+
+          learnMore.navItems.get(i).getText().then(function(text) {
+
             transformedText = text.replace(/ /g, '-').toLowerCase();
 
             var currentUrl = browser.getCurrentUrl();
 
-            expect(currentUrl).toContain(browser.baseUrl + 'documentation/' + transformedText);
+            expect(currentUrl).toEqual(browser.baseUrl + 'documentation/' + transformedText);
+
           });
+
         }
 
       });
 
-      navItems.get(0).click();
+      learnMore.navItems.get(0).click();
 
-      expect(currentUrl).toContain(browser.baseUrl + 'getting-started');
+      expect(currentUrl).toEqual(browser.baseUrl + 'getting-started');
 
     });
 
