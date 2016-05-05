@@ -10,9 +10,6 @@ describe( 'Choko.org', function() {
 
   it( 'navigate to Getting started', function() {
 
-    // @TODO: Investigate why is it been necessary since it was not at the first time.
-    browser.sleep(3000);
-
     chokoOrg.gettingStartedLink.click();
 
     browser.getCurrentUrl().then(function(url) {
