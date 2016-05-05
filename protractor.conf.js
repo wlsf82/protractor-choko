@@ -17,7 +17,7 @@ exports.config = {
     // Used for running all test files in paralel.
     // Comment it to run all tests in one browser.
     shardTestFiles: true,
-    maxInstances: 4
+    maxInstances: 5
   },
 
   // Define things that will happen before start testing.
