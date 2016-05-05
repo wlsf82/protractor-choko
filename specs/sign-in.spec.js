@@ -16,7 +16,7 @@ describe( 'Sign in', function() {
   it( 'navigate to sign in', function() {
 
     browser.getCurrentUrl().then(function(url) {
-      expect(url).toEqual('http://choko.org/sign-in');
+      expect(url).toEqual(browser.baseUrl + 'sign-in');
     });
 
   });

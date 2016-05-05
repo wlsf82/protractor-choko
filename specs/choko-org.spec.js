@@ -13,7 +13,7 @@ describe( 'Choko.org', function() {
     chokoOrg.gettingStartedLink.click();
 
     browser.getCurrentUrl().then(function(url) {
-      expect(url).toEqual('http://choko.org/getting-started');
+      expect(url).toEqual(browser.baseUrl + 'getting-started');
     });
 
   });
@@ -33,7 +33,7 @@ describe( 'Choko.org', function() {
     chokoOrg.contributeLink.click();
 
     browser.getCurrentUrl().then(function(url) {
-      expect(url).toEqual('http://choko.org/contribute');
+      expect(url).toEqual(browser.baseUrl + 'contribute');
     });
 
   });
@@ -43,7 +43,7 @@ describe( 'Choko.org', function() {
     chokoOrg.aboutLink.click();
 
     browser.getCurrentUrl().then(function(url) {
-      expect(url).toEqual('http://choko.org/about');
+      expect(url).toEqual(browser.baseUrl + 'about');
     });
 
   });
@@ -53,7 +53,7 @@ describe( 'Choko.org', function() {
     chokoOrg.blogLink.click();
 
     browser.getCurrentUrl().then(function(url) {
-      expect(url).toEqual('http://choko.org/blog');
+      expect(url).toEqual(browser.baseUrl + 'blog');
     });
 
   });

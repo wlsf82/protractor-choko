@@ -19,7 +19,7 @@ describe( 'Blog', function() {
   it( 'access create a blog post form from the add blog post button', function() {
 
     browser.getCurrentUrl().then(function(url) {
-      expect(url).toEqual('http://choko.org/create/blog');
+      expect(url).toEqual(browser.baseUrl + 'create/blog');
     });
 
   });

@@ -16,7 +16,7 @@ describe( 'Create account', function() {
   it( 'navigate to create an account', function() {
 
     browser.getCurrentUrl().then(function(url) {
-      expect(url).toEqual('http://choko.org/create-account');
+      expect(url).toEqual(browser.baseUrl + 'create-account');
     });
 
   });
