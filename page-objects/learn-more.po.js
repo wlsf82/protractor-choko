@@ -5,4 +5,4 @@ var LearnMore = function() {
 
 };
 
-module.exports = LearnMore
+module.exports = LearnMore;

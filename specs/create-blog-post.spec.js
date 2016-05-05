@@ -1,9 +1,11 @@
+var Blog = require('../page-objects/blog.po');
 var ChokoOrg = require('../page-objects/choko-org.po');
 var CreateBlogPostForm = require('../page-objects/create-blog-post-form.po');
 var Messages = require('../page-objects/partials/messages.po');
 
 describe( 'Blog', function() {
 
+  var blog = new Blog();
   var chokoOrg = new ChokoOrg();
   var createBlogPostForm = new CreateBlogPostForm();
   var messages = new Messages();
@@ -11,7 +13,7 @@ describe( 'Blog', function() {
   beforeEach(function() {
     chokoOrg.visit();
     chokoOrg.blogLink.click();
-    chokoOrg.addBlogPostButton.click();
+    blog.addBlogPostButton.click();
   });
 
   it( 'access create a blog post form from the add blog post button', function() {

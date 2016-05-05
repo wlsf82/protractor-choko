@@ -8,8 +8,6 @@ var ChokoOrg = function() {
 
   this.learnMoreLink = element(by.linkText('Learn more'));
 
-  this.addBlogPostButton = element(by.css('.ng-binding.btn-primary'));
-
   this.signInLink = element(by.css('.btn-link'));
   this.createAccountLink = element.all(by.css('.btn-primary')).first();
 
