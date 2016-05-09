@@ -40,7 +40,15 @@ describe( 'Learn more', function() {
 
     learnMore.navItems.get(0).click();
 
-    expect(currentUrl).toEqual(browser.baseUrl + 'getting-started');
+    learnMore.navItems.get(0).getText().then(function(text) {
+
+      transformedText = text.replace(/ /g, '-').toLowerCase();
+
+      var currentUrl = browser.getCurrentUrl();
+
+      expect(currentUrl).toEqual(browser.baseUrl + transformedText);
+
+    });
 
   });
 
