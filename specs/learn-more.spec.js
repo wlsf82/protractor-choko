@@ -18,13 +18,13 @@ describe( 'Learn more', function() {
 
     expect(currentUrl).toEqual(browser.baseUrl + 'getting-started');
 
-    learnMore.navItems.count().then(function(counter) {
+    learnMore.leftNavItems.count().then(function(counter) {
 
       for (var i = 1; i < counter; i++) {
 
-        learnMore.navItems.get(i).click();
+        learnMore.leftNavItems.get(i).click();
 
-        learnMore.navItems.get(i).getText().then(function(text) {
+        learnMore.leftNavItems.get(i).getText().then(function(text) {
 
           transformedText = text.replace(/ /g, '-').toLowerCase();
 
@@ -38,9 +38,9 @@ describe( 'Learn more', function() {
 
     });
 
-    learnMore.navItems.get(0).click();
+    learnMore.leftNavItems.get(0).click();
 
-    learnMore.navItems.get(0).getText().then(function(text) {
+    learnMore.leftNavItems.get(0).getText().then(function(text) {
 
       transformedText = text.replace(/ /g, '-').toLowerCase();
 
